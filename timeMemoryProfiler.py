@@ -10,7 +10,8 @@ def get_process_memory():
 
 def elapsed_since(start):
     return time.strftime('%H:%M:%S', time.gmtime(time.time() - start))
-# structureformat, which does...
+# strftime is a structure format. Here: %H:%M:%S which is hours, minutes and seconds
+# returns a string with the elapsed time since start.
 
 def track(func):
     def main(*args, **kwargs):
@@ -24,7 +25,8 @@ def track(func):
         return result
     return main
 
-# Credit (code tutorial):
+# Credit (code tutorial): github.com/saife245
+
 
 # TODO:
 #  Evt: visualisering af kørsel og/eller data.

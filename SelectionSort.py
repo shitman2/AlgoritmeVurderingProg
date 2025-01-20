@@ -31,11 +31,6 @@ def PrintIt(arr):
 if __name__ == "__main__":
     arr = [random.randint(0,10000) for i in range(10000)]
 
-    print("Original array: ", end="")
-    PrintIt(arr)
 
     SelectSorting(arr)
 
-    print("Sorted array: ", end="")
-    PrintIt(arr)
-    meow

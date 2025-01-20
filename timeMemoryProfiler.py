@@ -25,25 +25,4 @@ def track(func):
         return result
     return main
 
-# Credit (code tutorial): github.com/saife245
-
-
-# TODO:
-#  Evt: visualisering af kørsel og/eller data.
-#  Arbejdsspørgsmål:
-#  Hvilke kriterier for udvælgelse er relevante for hhv sorteringsalgoritmer og stifinder-algoritmer – Hvorfor?
-#  Afprøv dit projekt ved at sammenligne to eller flere algoritmer..
-
-
-
-'''
-#This is the old timer. The new function both time and profile memory usage.
-
-def timed_func(func_to_time):
-    def timed(*args, **kwargs):
-        start = time.perf_counter()
-        result = func_to_time(*args, **kwargs)
-        print(time.perf_counter() - start)
-        return result
-    return timed
-'''
+# Credit for some of it (code tutorial): github.com/saife245

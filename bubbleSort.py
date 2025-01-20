@@ -1,18 +1,22 @@
 import random
 from timeMemoryProfiler import track
+from itemLists import item_list
 
+arr = item_list
 # Use decorator (@) to use the imported function on the algo
 @track
-def bubble_sort(items):
-    for i in range(len(items)):
+def bubble_sort(arr):
+    for i in range(len(arr)):
         already_sorted = True
-        for j in range(len(items) -i -1):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
+        for j in range(len(arr) -i -1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 already_sorted = False
         if already_sorted:
             break
-    return items
+    return arr
 
-items = [random.randint(0,10000) for i in range(10000)]
-print(bubble_sort(items))
+
+
+if __name__ == "__main__":
+    arr = items

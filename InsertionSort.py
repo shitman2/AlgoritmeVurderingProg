@@ -26,6 +26,6 @@ def ArrayPrint(arr):
 if __name__ == "__main__":
     arr = [random.randint(0,10000) for i in range(10000)]
     Insert(arr)
-    ArrayPrint(arr)
+    #ArrayPrint(arr)
 
     # This code is contributed by Hritik Shah.

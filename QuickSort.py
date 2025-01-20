@@ -1,8 +1,18 @@
 import random
 from timeMemoryProfiler import track
+from itemLists import item_list
 
 @track
-def QuickSort(arr, low, high):
+def QuickSort(arr):
+    peak = [0]
+
+    high = peak[0]
+    for i in range(1, len(item_list)):
+        if peak[i] > max:
+            max = peak[i]
+    return high
+
+    low = 0
     # Choose the pivot
     pivot = arr[high]
 
@@ -30,6 +40,7 @@ def swap(arr, i, j):
 
 
 # The QuickSort function implementation
+#def SortingQuick(arr, low, high):
 def SortingQuick(arr, low, high):
     if low < high:
         # pi is the partition return index of pivot
@@ -43,10 +54,11 @@ def SortingQuick(arr, low, high):
 
 # Main driver code
 if __name__ == "__main__":
-    arr = [random.randint(0,10000) for i in range(10000)]
+    arr = item_list
     n = len(arr)
 
     SortingQuick(arr, 0, n - 1)
 
-    for val in arr:
-        print(val, end=" ")
+    #for val in arr:
+    #    print(val, end=" ")
+    print("Done Quick Sort")

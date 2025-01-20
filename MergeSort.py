@@ -1,8 +1,15 @@
 import random
 from timeMemoryProfiler import track
+from itemLists import item_list
 
 @track
-def MergeSort(arr, left, mid, right):
+#def MergeSort(arr, left, mid, right):
+def MergeSort(arr):
+
+    mid = len(item_list) // 2
+    left = mid - 1
+    right = mid + 1
+
     n1 = mid - left + 1
     n2 = right - mid
 
@@ -60,11 +67,7 @@ def print_list(arr):
 
 # Driver code
 if __name__ == "__main__":
-    arr = [random.randint(0,10000) for i in range(10000)]
-    print("Given array is")
-    print_list(arr)
+    arr = item_list
+
 
     sorting(arr, 0, len(arr) - 1)
-
-    print("\nSorted array is")
-    print_list(arr)

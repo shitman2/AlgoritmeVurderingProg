@@ -2,105 +2,43 @@ import random
 from timeMemoryProfiler import track
 from itemLists import item_list
 
-'''@track
-def QuickSort(arr, low, high):
-    peak = [0]
-    max = 0
-    high = peak[0]
-    for i in range(1, len(item_list)):
-        if peak[i] > max:
-            max = peak[i]
-    return high
+# Helper function to swap elements in the array
+def swap(arr, i, j):
+    arr[i], arr[j] = arr[j], arr[i]
 
-    low = 0
-    # Choose the pivot
+# Partition function to partition the array and return the pivot index
+def partition(arr, low, high):
+    # Choose the pivot (we'll use the last element as the pivot)
     pivot = arr[high]
+    i = low - 1  # Index of smaller element
 
-    # Index of smaller element and indicates
-    # the right position of pivot found so far
-    i = low - 1
-
-    # Traverse arr[low..high] and move all smaller
-    # elements to the left side. Elements from low to
-    # i are smaller after every iteration
+    # Traverse the array and rearrange elements based on the pivot
     for j in range(low, high):
         if arr[j] < pivot:
             i += 1
             swap(arr, i, j)
 
-    # Move pivot after smaller elements and
-    # return its position
+    # Move pivot element to its correct position
     swap(arr, i + 1, high)
-    return i + 1
+    return i + 1  # Return the pivot index
 
-
-# Swap function
-def swap(arr, i, j):
-    arr[i], arr[j] = arr[j], arr[i]
-
-
-# The QuickSort function implementation
-#def SortingQuick(arr, low, high):
-def SortingQuick(arr, low, high):
+# The main QuickSort function that applies the partitioning logic recursively
+def QuickSort(arr, low, high):
     if low < high:
-        # pi is the partition return index of pivot
-        pi = QuickSort(arr, low, high)
+        # Partition the array and get the pivot index
+        pi = partition(arr, low, high)
 
-        # Recursion calls for smaller elements
-        # and greater or equals elements
-        SortingQuick(arr, low, pi - 1)
-        SortingQuick(arr, pi + 1, high)'''
+        # Recursively sort the subarrays before and after the pivot
+        QuickSort(arr, low, pi - 1)  # Elements before pivot
+        QuickSort(arr, pi + 1, high)  # Elements after pivot
 
-import random
-@track
-#def QuickSort(arr, low, high):
-def QuickSort(arr):
-    high = max(item_list)
-    # Choose the pivot
-    pivot = arr[max(item_list)]
-    # Index of smaller element and indicates
-    # the right position of pivot found so far
-    i = low - 1
-    # Traverse arr[low..high] and move all smaller
-    # elements to the left side. Elements from low to
-    # i are smaller after every iteration
-    for j in range(low, high):
-        if arr[j] < pivot:
-            i += 1
-            swap(arr, i, j)
-    # Move pivot after smaller elements and
-    # return its position
-    swap(arr, i + 1, high)
-    return i + 1
-
-
-# Swap function
-def swap(arr, i, j):
-    arr[i], arr[j] = arr[j], arr[i]
-# The QuickSort function implementation
-
-
-#def SortingQuick(arr, low, high):
-
+# Wrapper function to allow benchmarking with just the array
+@track  # Apply @track only here, to the wrapper function
 def SortingQuick(arr):
-    low = min(item_list)
-    high = max(item_list)
+    QuickSort(arr, 0, len(arr) - 1)  # Pass the whole array from 0 to len(arr)-1
 
-    if low < high:
-        # pi is the partition return index of pivot
-        pi = QuickSort(arr)
-        # Recursion calls for smaller elements
-        # and greater or equals elements
-        SortingQuick(arr, low, pi - 1)
-        SortingQuick(arr, pi + 1, high)
+from QuickSort import SortingQuick
 
+arr = [random.randint(0, 10000) for _ in range(10000)]  # Test array
 
-# Main driver code
-if __name__ == "__main__":
-    arr = item_list
-
-    SortingQuick(arr)
-
-    #for val in arr:
-    #    print(val, end=" ")
-    print("Done Quick Sort")
+SortingQuick(arr)  # This should print memory and time stats just once

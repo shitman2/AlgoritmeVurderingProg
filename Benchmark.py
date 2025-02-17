@@ -1,6 +1,7 @@
 import random
 import time
 import tracemalloc
+import matplotlib.pyplot as plt
 
 # Importing sorting algorithms
 import InsertionSort
@@ -51,3 +52,6 @@ if __name__ == "__main__":
     print("Sorting Algorithm Performance:")
     for result in results:
         print(f"{result['name']}: Time = {result['time']:.4f} sec, Memory = {result['memory']:.2f} KB")
+        plt.plot()
+        plt.ylabel('some numbers')
+        plt.show()
